@@ -1,0 +1,9 @@
+{% extends 'appointments/base.html' %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h2>Appointment Booked Successfully!</h2>
+    <p>Thank you for booking an appointment with us.</p>
+    <a href="{% url 'appointments:home' %}" class="btn btn-primary mt-3">Go Back to Homepage</a>
+</div>
+{% endblock %}

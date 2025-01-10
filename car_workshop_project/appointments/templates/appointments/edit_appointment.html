@@ -1,0 +1,13 @@
+{% extends 'appointments/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Edit Appointment</h2>
+    <form method="post" class="card p-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Save Changes</button>
+    </form>
+    <a href="{% url 'appointments:admin_panel' %}" class="btn btn-secondary mt-3">Cancel</a>
+</div>
+{% endblock %}

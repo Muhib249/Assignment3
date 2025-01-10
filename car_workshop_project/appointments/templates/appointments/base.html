@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Car Workshop{% endblock %}</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'appointments/css/styles.css' %}">
+
+    
+</head>
+<body>
+    <header style="text-align: center; position: absolute; top: 0; width: 100%;">
+        <h1></h1>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Car Workshop Management System. All Rights Reserved.</p>
+    </footer>
+    <!-- Link to JavaScript File -->
+    <script src="{% static 'appointments/js/form_validation.js' %}" defer></script>
+</body>
+</html>

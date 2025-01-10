@@ -1,0 +1,56 @@
+{% extends 'appointments/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="form-container">
+        <h2 class="text-center">Book an Appointment</h2>
+
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert alert-danger">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="client_name">Your Name:</label>
+                {{ form.client_name }}
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                {{ form.address }}
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                {{ form.phone }}
+            </div>
+            <div class="form-group">
+                <label for="car_license_number">Car License Number:</label>
+                {{ form.car_license_number }}
+            </div>
+            <div class="form-group">
+                <label for="car_engine_number">Car Engine Number:</label>
+                {{ form.car_engine_number }}
+            </div>
+            <div class="form-group">
+                <label for="appointment_date">Appointment Date:</label>
+                {{ form.appointment_date }}
+            </div>
+            <div class="form-group">
+                <label for="mechanic">Select Mechanic:</label>
+                {{ form.mechanic }}
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Book Appointment</button>
+            </div>
+        </form>
+
+        <p class="text-center mt-4">
+            Have an issue? <a href="#" class="contact-link">Contact Support</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

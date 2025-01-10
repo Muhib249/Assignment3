@@ -1,0 +1,36 @@
+{% extends 'appointments/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>View Your Appointment</h2>
+    <form method="post" class="form-style">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="phone">Enter Your Phone Number</label>
+            <input type="text" name="phone" id="phone" placeholder="Phone Number" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Search Appointment</button>
+    </form>
+
+    {% if appointment %}
+    <div class="appointment-details mt-4">
+        <h3>Appointment Details</h3>
+        <p><strong>Name:</strong> {{ appointment.client_name }}</p>
+        <p><strong>Phone:</strong> {{ appointment.phone }}</p>
+        <p><strong>Car License:</strong> {{ appointment.car_license_number }}</p>
+        <p><strong>Car Engine:</strong> {{ appointment.car_engine_number }}</p>
+        <p><strong>Date:</strong> {{ appointment.appointment_date }}</p>
+        <p><strong>Mechanic:</strong> {{ appointment.mechanic.name }}</p>
+    </div>
+    {% elif error_message %}
+    <div class="alert alert-danger mt-4">
+        {{ error_message }}
+    </div>
+    {% endif %}
+
+    <!-- Back to Home Button -->
+    <div class="text-center mt-4">
+        <a href="{% url 'appointments:home' %}" class="btn btn-secondary">Back to Home</a>
+    </div>
+</div>
+{% endblock %}
